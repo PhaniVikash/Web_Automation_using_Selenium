@@ -10,9 +10,11 @@ class WebAutomation:
         # Define Service Options
         service = Service('chromedriver-win64/chromedriver.exe')
         self.driver = webdriver.Chrome(service=service)
+        
 
     def login(self,username,password):
         # Load the web page
+
         self.driver.get('https://demoqa.com/login')
 
         # Load username , password and Login Button
@@ -30,6 +32,7 @@ class WebAutomation:
                                                                                                                 
 
     def fill_form(self,name,email,cur_add,per_add):
+
 
         # Locate element dropdown and textbox
         element = self.driver.find_element(By.XPATH,'//*[@id="app"]/div/div/div/div[1]/div/div/div[1]/span/div')
@@ -66,10 +69,13 @@ class WebAutomation:
 
     def close(self):
 
+        input("Enter a number")
+
         self.driver.quit()
 
 if __name__ == '__main__':
     web_automation = WebAutomation()
     web_automation.login(username='azvikash',password='Python@123')
     web_automation.fill_form(name='Akash',email='Akash@gmail.com',cur_add='Kanuru',per_add='india')
+    web_automation.download()
     web_automation.close()
